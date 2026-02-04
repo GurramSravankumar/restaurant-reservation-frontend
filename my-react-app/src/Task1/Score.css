@@ -1,0 +1,27 @@
+.score{
+    width:100%;
+    border-radius:300px;
+    border: 2px solid black;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+.btn-class{
+    width:100%;
+    border-radius:300px;
+    border: 2px solid black;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(107, 118, 118);
+}
+.btn{
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: 20px;
+    border: 5px solid black;
+    border-radius: 20px;
+}
