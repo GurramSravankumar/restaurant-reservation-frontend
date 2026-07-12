@@ -1,62 +1,82 @@
-# Restaurant Reservation Management System
+# 🍽️ DineEase: Restaurant Reservation Frontend
 
-A full-stack table booking system designed with a secure Spring Boot REST API backend and a responsive Vite React frontend setup.
+<div align="center">
+  <img src="https://img.shields.io/badge/Live_Demo-Visit_Now-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo" />
+  <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/React_Router-DOM-red?style=for-the-badge&logo=react-router" alt="React Router" />
+  <img src="https://img.shields.io/badge/Vite-4.0-purple?style=for-the-badge&logo=vite" alt="Vite" />
+</div>
 
-## 🏗️ Technology Stack
-*   **Frontend**: React, React Router 6, Axios, HSL-themed Vanilla CSS.
-*   **Backend**: Spring Boot 3.2.5, Spring Security, JWT (JJWT), Spring Data JPA.
-*   **Database**: MySQL 8.x.
+<br/>
 
----
-
-## 🚀 Setup Instructions
-
-### 1. Backend Setup
-1.  Open **Spring Tool Suite (STS)**.
-2.  Import the Maven project from `d:\spring\restaurant-backend`.
-3.  Ensure local MySQL is running. Create the database:
-    ```sql
-    CREATE DATABASE restaurant_db;
-    ```
-4.  Verify database credentials in `src/main/resources/application.properties`:
-    ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/restaurant_db?createDatabaseIfNotExist=true
-    spring.datasource.username=root
-    spring.datasource.password=939854
-    ```
-5.  Run the application as a **Spring Boot App** (runs on port `8080`).
-
-### 2. Frontend Setup
-1.  Navigate to `d:\react\restaurant-frontend` in your terminal.
-2.  Install dependencies (if not done yet):
-    ```bash
-    npm install
-    ```
-3.  Launch the Vite developer server:
-    ```bash
-    npm run dev
-    ```
-4.  Open the web browser at `http://localhost:5173/`.
+A modern, responsive React interface serving as the client-facing portal for the DineEase ecosystem. Built with absolute speed and intuitive UX in mind, natively handling advanced user states, reservation cart architectures, and table management portals. 
 
 ---
 
-## 🧠 Core System Design & Concepts
+## ✨ Key Features
 
-### 1. Reservation Conflict & Overlapping Rules
-*   **Zero Double-Booking**: During reservation requests, the service checks if a table has an active `BOOKED` slot for the selected date and time slot.
-*   **Best-Fit Matching**: Seats are not assigned arbitrarily. The system selects the table with the smallest seating capacity that safely fits the party size. This leaves larger tables open for larger group bookings.
-*   **Graceful Fails**: If no tables fit the capacity, or if all suitable tables are booked, an descriptive error message is returned.
-
-### 2. Role-Based Access Control
-*   **JWT Tokens**: Secure endpoints are shielded via Spring Security using stateless JWT verification filters.
-*   **User Routing**:
-    *   **Customer (USER)**: Access to create bookings on `/` and monitor reservations on `/reservations/my`.
-    *   **Admin (ADMIN)**: Access to the Admin Dashboard (`/admin/dashboard`) to view/filter bookings, edit dates/slots/guests, and create/manage restaurant seating tables.
-    *   Client routes are secure on the client side using `<PrivateRoute>` wrappers in `App.jsx` and on the API side using `.requestMatchers("/api/admin/**").hasRole("ADMIN")`.
+| Feature | Description |
+| :--- | :--- |
+| **🛡️ Token Injection** | Axios instances actively trapping and wrapping JWT signatures for secure endpoints. |
+| **🪑 Visual Seating Config** | Clean component UI allowing users to visually set pax limit constraints securely. |
+| **🔄 Seamless Dashboard** | Real-time user reservation tracking with instant cancellation capabilities. |
+| **👨‍💼 Operator Analytics** | Administrator portal designed to view real-time restaurant active floor-plans and edit metrics. |
+| **🌐 Native Hash Fallbacks** | Advanced build-scripts seamlessly integrating BrowserRouter mechanics directly onto Github Pages without 404s. |
 
 ---
 
-## ⚠️ Known Limitations & Future Improvements
-1.  **Fixed Time Slots**: Time slots are currently statically defined (e.g., "7:00 PM"). Custom durations or fine-grained timestamps could be implemented.
-2.  **No Table Merging**: The system does not combine adjacent tables for very large groups.
-3.  **Real-Time Sync**: Add WebSocket support for instant table status updates across administrators.
+## 🛠️ Tech Stack
+
+**Frontend Design System:**
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Tailwind](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+---
+
+## 🌐 Deployment
+
+| Service | Platform | URL |
+| :--- | :--- | :--- |
+| **Frontend Web** | GitHub Pages | [DineEase Client Portal](https://gurramsravankumar.github.io/restaurant-reservation-frontend) |
+| **Backend Cluster** | Render Web Services | [Connected REST API Server](https://restaurant-reservation-system-iqjj.onrender.com) |
+
+---
+
+## 🚀 Run Locally
+
+**Prerequisites:**
+* Node.js 18+
+* Web Browser (Chrome/Edge/Firefox)
+
+**Execution Commands:**
+```bash
+git clone https://github.com/GurramSravankumar/restaurant-reservation-frontend.git
+cd restaurant-reservation-frontend
+npm install
+npm run dev
+```
+
+---
+
+## 📁 UI Component Architecture
+
+```text
+Restaurant-Frontend/
+├── src/
+│   ├── components/                # Modular Reusable Atoms
+│   │   ├── Navbar.jsx             # Root routing boundaries
+│   │   └── Modal.jsx              # UX confirmation triggers
+│   │
+│   ├── pages/                     # Routed Macro Panels
+│   │   ├── Home.jsx               # Reservation Generation Engine
+│   │   ├── AdminDashboard.jsx     # Control & Audit UI
+│   │   ├── Login.jsx              # JWT Issuance Screen
+│   │   └── Register.jsx           # Spring Security interfacing
+│   │
+│   ├── index.css                  # Master CSS token variables
+│   ├── main.jsx                   # React Root DOM Mountpoint
+│   └── App.jsx                    # Route mapping & Security wrappers
+└── package.json                   # Automated deployment scripts
+```
