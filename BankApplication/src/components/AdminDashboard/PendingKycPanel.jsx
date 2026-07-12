@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DataTable from "../DataTable";
 
 function PendingKycPanel({ pendingKyc, handleKycAction }) {
-    const [selectedDoc, setSelectedDoc] = useState(null); 
+    const [selectedDoc, setSelectedDoc] = useState(null);
 
     return (
         <div className="panel animate-fade-in">
@@ -40,12 +40,12 @@ function PendingKycPanel({ pendingKyc, handleKycAction }) {
                     <div className="doc-modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="doc-modal-close" onClick={() => setSelectedDoc(null)}>&times;</button>
                         <div className="doc-modal-body">
-                            {}
+                            { }
                             <div className="doc-modal-left">
                                 <h3>{selectedDoc.label}</h3>
                                 <div className="doc-img-container">
                                     <img
-                                        src={`http://localhost:8080/${selectedDoc.path.replace(/\\/g, "/")}`}
+                                        src={`https://banking-management-system-8xwa.onrender.com/${selectedDoc.path.replace(/\\/g, "/")}`}
                                         alt={selectedDoc.label}
                                         onError={(e) => {
                                             e.target.src = "https://via.placeholder.com/400x300?text=Document+Image+Not+Found";
@@ -53,7 +53,7 @@ function PendingKycPanel({ pendingKyc, handleKycAction }) {
                                     />
                                 </div>
                             </div>
-                            {}
+                            { }
                             <div className="doc-modal-right">
                                 <h3>User Details</h3>
                                 <div className="doc-user-details-list">

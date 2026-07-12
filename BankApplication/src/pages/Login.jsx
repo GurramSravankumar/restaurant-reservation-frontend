@@ -44,7 +44,7 @@ function Login() {
             }
         } catch (error) {
             if (error.message === "Network Error" || !error.response) {
-                alert("🔌 Connectivity Error:\n\nCannot connect to the bank server at http://localhost:8080.\nPlease verify that your Spring Boot application is running and online.");
+                alert("🔌 Connectivity Error:\n\nCannot connect to the bank server at https://banking-management-system-8xwa.onrender.com.\nPlease verify that your Spring Boot application is running and online.");
             } else if (error.response?.status === 401) {
                 alert("❌ Invalid Login:\n\nThe email or password you entered is incorrect. Please verify your credentials.");
             } else {

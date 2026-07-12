@@ -64,7 +64,7 @@ function UserDashboard() {
                         <div className="profile-avatar-wrapper">
                             {profile?.profilePhotoPath ? (
                                 <img
-                                    src={`http://localhost:8080/${profile.profilePhotoPath.replace(/\\/g, '/')}`}
+                                    src={`https://banking-management-system-8xwa.onrender.com/${profile.profilePhotoPath.replace(/\\/g, '/')}`}
                                     alt="Sravan Kumar"
                                     className="profile-avatar-img"
                                     onError={(e) => {

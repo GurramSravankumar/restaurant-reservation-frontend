@@ -37,7 +37,7 @@ function ProfilePanel({
                                         <div className="profile-photo-container" style={{ width: "120px", height: "120px", borderRadius: "50%", overflow: "hidden", border: "2px solid #cbd5e1", background: "#f1f5f9", display: "flex", justifyContent: "center", alignItems: "center" }}>
                                             {value ? (
                                                 <img
-                                                    src={`http://localhost:8080/${value.replace(/\\/g, '/')}`}
+                                                    src={`https://banking-management-system-8xwa.onrender.com/${value.replace(/\\/g, '/')}`}
                                                     alt="Profile Preview"
                                                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                                     onError={(e) => {
@@ -56,7 +56,7 @@ function ProfilePanel({
                                     <p key={key}>
                                         <span style={{ textTransform: "capitalize" }}>{key.replace(/([A-Z])/g, ' $1')}</span>
                                         {value ? (
-                                            <a href={`http://localhost:8080/${value.replace(/\\/g, '/')}`} target="_blank" rel="noreferrer" style={{ color: "#2563eb", textDecoration: "underline", fontWeight: 600 }}>
+                                            <a href={`https://banking-management-system-8xwa.onrender.com/${value.replace(/\\/g, '/')}`} target="_blank" rel="noreferrer" style={{ color: "#2563eb", textDecoration: "underline", fontWeight: 600 }}>
                                                 View Document
                                             </a>
                                         ) : "-"}
